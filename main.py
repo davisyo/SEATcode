@@ -5,10 +5,11 @@ def main():
     # Parsing the argument which should be the input file
     args = parse_arguments()
 
-    # Create the fleet (list of rovers) from the content of the file
-    fleet = process_input(args)
+    # Create the squad (list of rovers) from the content of the file
+    squad = process_input(args)
 
-    for rover in fleet:
+    # Each rover will navigate the plateau and report its location
+    for rover in squad:
         rover.navigate()
         rover.report_location()
 

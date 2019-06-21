@@ -1,7 +1,7 @@
 class Plateau:
     def __init__(self, x_limit, y_limit):
-        self.x_limit = x_limit
-        self.y_limit = y_limit
+        self.x_limit = int(x_limit)
+        self.y_limit = int(y_limit)
 
 
 class Rover:

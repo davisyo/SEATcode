@@ -1,0 +1,5 @@
+9 4
+2 3 E
+M M R M M L L M
+5 0 S
+M M L M M M L M M M R M M M
