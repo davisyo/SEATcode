@@ -7,7 +7,7 @@ A squad of rovers explore the martian surface in the SEATCode challenge
 
 ### BASIC USAGE:
 
-python main.py text_file_input
+>python main.py text_file_input
 
 ### INPUT
 
@@ -25,16 +25,13 @@ means that the second rover won’t start to move until the first one has
 finished moving."*
 
 #### Example of the content a text file input (named test_case1.txt):
-
+```
 9 4
-
 2 3 E
-
 M M R M M L L M
-
 5 0 S
-
 M M L M M M L M M M R M M M
+```
 
 
 ### OUTPUT
@@ -43,11 +40,11 @@ The output of the program will contain 1 line for each rover defined with its fi
 
 #### Example output running the program using test_case1.txt as input:
 
-python main.py test_case1.txt
-
+>python main.py test_case1.txt
+```
 4 2 N
-
 9 3 E
+```
 
 
 
