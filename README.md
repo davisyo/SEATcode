@@ -6,9 +6,9 @@ A squad of rovers explore the martian surface in the SEATCode challenge
 [Download and Install Python 2.7](https://www.python.org/download/releases/2.7/)
 
 ### BASIC USAGE:
-
->python main.py text_file_input
-
+```
+python main.py text_file_input
+```
 ### INPUT
 
 **text_file_input** should be a plain text file containing the setting up and instructions as stated in the challenge:
@@ -40,7 +40,9 @@ The output of the program will contain 1 line for each rover defined with its fi
 
 #### Example output running the program using test_case1.txt as input:
 
->python main.py test_case1.txt
+```
+python main.py test_case1.txt
+```
 ```
 4 2 N
 9 3 E
