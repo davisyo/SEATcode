@@ -36,7 +36,7 @@ M M L M M M L M M M R M M M
 
 ### OUTPUT
 
-The output of the program will contain 1 line for each rover defined with its final coordinates and heading.
+The output of the application will contain 1 line for each rover defined with its final coordinates and heading.
 
 #### Example output running the program using test_case1.txt as input:
 
@@ -47,6 +47,15 @@ python main.py test_case1.txt
 4 2 N
 9 3 E
 ```
+
+### DESIGN ASSUMPTIONS
+
+The following assumptions were made in the design and development of the application:
+
+-	The rovers can cross a position where another rover stays
+-	The range of valid positions goes from (0,0) to (upper_limit_x, upper_limit_y)
+-	If an incorrect movement instruction is detected, it will be reported and ignored
+-	If an incorrect number of blank spaces are detected inside the position or movement strings, they will be ignored
 
 
 
