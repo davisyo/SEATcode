@@ -24,7 +24,7 @@ rover’s orientation. Each rover will be finished sequentially, which
 means that the second rover won’t start to move until the first one has
 finished moving."*
 
-##### Example of the content a text file input (named test_case1.txt):
+#### Example of the content a text file input (named test_case1.txt):
 
 9 4
 
@@ -41,7 +41,7 @@ M M L M M M L M M M R M M M
 
 The output of the program will contain 1 line for each rover defined with its final coordinates and heading.
 
-##### Example output running the program using test_case1.txt as input:
+#### Example output running the program using test_case1.txt as input:
 
 python main.py test_case1.txt
 
