@@ -2,9 +2,11 @@
 A squad of rovers explore the martian surface in the SEATCode challenge
 
 BASIC USAGE:
+
 python main.py text_file_input
 
 INPUT
+
 text_file_input should be a plain text file containing the setting up and instructions as stated in the challenge:
 
 "The first line of input is the upper‑right coordinates of the plateau, the
@@ -26,6 +28,7 @@ M M R M M L L M
 M M L M M M L M M M R M M M
 
 OUTPUT
+
 The output of the program will contain 1 line for each rover defined with its final coordinates and heading.
 
 Example output running the program using test_case1.txt as input:
