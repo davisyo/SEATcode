@@ -3,7 +3,7 @@ A squad of rovers explore the martian surface in the SEATCode challenge
 
 ### PREREQUISITES:
 
-[Download and Install Python 2.7](https://www.python.org/download/releases/2.7/)
+[Download and Install Python 2.7](https://www.python.org/download/releases/2.7/) (note that Mac OS X 10.8 comes with Python 2.7 pre-installed by Apple)
 
 ### BASIC USAGE:
 ```
