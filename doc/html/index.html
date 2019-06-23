@@ -1,0 +1,187 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Welcome to David Muñoz SEATCode Challenge - code’s documentation! &#8212; SEATCode 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-david-munoz-seatcode-challenge-code-s-documentation">
+<h1>Welcome to David Muñoz SEATCode Challenge - code’s documentation!<a class="headerlink" href="#welcome-to-david-munoz-seatcode-challenge-code-s-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></li>
+</ul>
+</div>
+<div class="section" id="module-main">
+<span id="seatcode-main"></span><h1>SEATCode main<a class="headerlink" href="#module-main" title="Permalink to this headline">¶</a></h1>
+<p>Main file to run the application</p>
+<dl class="function">
+<dt id="main.main">
+<code class="descclassname">main.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/main.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#main.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Launching the SEATCode Challenge application.</p>
+<p>1: Parsing the argument which should be the input file path</p>
+<p>2: Create the squad (list of rovers) from the content of the file</p>
+<p>3: Each rover will navigate the plateau and report its location</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-read_input">
+<span id="seatcode-read-input"></span><h1>SEATCode read_input<a class="headerlink" href="#module-read_input" title="Permalink to this headline">¶</a></h1>
+<p>This module contains the functions needed to obtain the input filename from the arguments, process it content
+and initialize the Plateau and Rovers objects</p>
+<dl class="function">
+<dt id="read_input.parse_arguments">
+<code class="descclassname">read_input.</code><code class="descname">parse_arguments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/read_input.html#parse_arguments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#read_input.parse_arguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parsing the argument which should be the input file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="read_input.process_input">
+<code class="descclassname">read_input.</code><code class="descname">process_input</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/read_input.html#process_input"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#read_input.process_input" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function reads the content of the file and initializes the squad of rovers with the information provided.</p>
+<p>Blank spaces within the location and movement strings will be ignored.</p>
+<p>The structure of the file will be checked for errors.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-nasa">
+<span id="seatcode-nasa"></span><h1>SEATCode nasa<a class="headerlink" href="#module-nasa" title="Permalink to this headline">¶</a></h1>
+<p>“This module contains the Plateau and Rover classes</p>
+<dl class="class">
+<dt id="nasa.Plateau">
+<em class="property">class </em><code class="descclassname">nasa.</code><code class="descname">Plateau</code><span class="sig-paren">(</span><em>x_limit</em>, <em>y_limit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nasa.html#Plateau"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nasa.Plateau" title="Permalink to this definition">¶</a></dt>
+<dd><p>A simple object containing the x and y limits of the Plateau</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="nasa.Rover">
+<em class="property">class </em><code class="descclassname">nasa.</code><code class="descname">Rover</code><span class="sig-paren">(</span><em>initial_loc</em>, <em>movements</em>, <em>board</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nasa.html#Rover"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nasa.Rover" title="Permalink to this definition">¶</a></dt>
+<dd><p>“Each rover object contains its position (x and y), orientation, movements string and a copy of the Plateau</p>
+<dl class="method">
+<dt id="nasa.Rover.advance">
+<code class="descname">advance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nasa.html#Rover.advance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nasa.Rover.advance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to move forward one step taking into account the Plateau limits</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nasa.Rover.navigate">
+<code class="descname">navigate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nasa.html#Rover.navigate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nasa.Rover.navigate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to process each character of the movements string and execute the corresponding instruction
+(rotate or advance)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nasa.Rover.report_location">
+<code class="descname">report_location</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/nasa.html#Rover.report_location"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nasa.Rover.report_location" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to print the current location of the rover in the console</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="nasa.Rover.rotate">
+<code class="descname">rotate</code><span class="sig-paren">(</span><em>direction</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/nasa.html#Rover.rotate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#nasa.Rover.rotate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Function to rotate the rover to the right or to the left</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="#">SEATCode</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, David Munoz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

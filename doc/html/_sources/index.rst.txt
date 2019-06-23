@@ -1,0 +1,36 @@
+.. SEATCodeChallenge documentation master file, created by
+   sphinx-quickstart on Sun Jun 23 16:58:19 2019.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to David Muñoz SEATCode Challenge - code's documentation!
+=================================================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`
+
+
+
+SEATCode main
+=============
+.. automodule:: main
+   :members:
+
+SEATCode read_input
+===================
+.. automodule:: read_input
+   :members:
+
+SEATCode nasa
+=============
+.. automodule:: nasa
+   :members:
+   

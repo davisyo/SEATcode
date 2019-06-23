@@ -1,0 +1,167 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>read_input &#8212; SEATCode 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for read_input</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;This module contains the functions needed to obtain the input filename from the arguments, process it content</span>
+<span class="sd">and initialize the Plateau and Rovers objects&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">argparse</span>                     <span class="c1"># In order to parse the given arguments</span>
+<span class="kn">from</span> <span class="nn">nasa</span> <span class="k">import</span> <span class="n">Plateau</span><span class="p">,</span> <span class="n">Rover</span>     <span class="c1"># Classes definition in order to create the objects</span>
+
+
+<div class="viewcode-block" id="parse_arguments"><a class="viewcode-back" href="../index.html#read_input.parse_arguments">[docs]</a><span class="k">def</span> <span class="nf">parse_arguments</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;Parsing the argument which should be the input file&quot;&quot;&quot;</span>
+
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;Obtain filepath from the arguments&#39;</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;file_path&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store&#39;</span><span class="p">,</span> <span class="nb">type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;path of the input file&#39;</span><span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">args</span></div>
+
+
+<div class="viewcode-block" id="process_input"><a class="viewcode-back" href="../index.html#read_input.process_input">[docs]</a><span class="k">def</span> <span class="nf">process_input</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;This function reads the content of the file and initializes the squad of rovers with the information provided.</span>
+
+<span class="sd">    Blank spaces within the location and movement strings will be ignored.</span>
+
+<span class="sd">    The structure of the file will be checked for errors.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Open the file and store all lines in a list</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    <span class="n">input_list</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+
+    <span class="c1"># Check that the file is not empty, otherwise stop the program with an error message</span>
+    <span class="k">assert</span> <span class="n">input_list</span><span class="p">,</span> <span class="s2">&quot;The input file is empty&quot;</span>
+    <span class="c1"># The first line is the board limit</span>
+    <span class="n">board_limit</span> <span class="o">=</span> <span class="n">input_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="c1"># Remove blank spaces and end of line in the plateau limit string</span>
+    <span class="n">board_limit</span> <span class="o">=</span> <span class="n">board_limit</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+    <span class="n">board_limit</span> <span class="o">=</span> <span class="n">board_limit</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+    <span class="c1"># Create the board</span>
+    <span class="n">board</span> <span class="o">=</span> <span class="n">Plateau</span><span class="p">(</span><span class="n">board_limit</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">board_limit</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1"># If the list is empty now, there aren&#39;t any rovers defined -&gt; stop the program and raise an error</span>
+    <span class="k">assert</span> <span class="n">input_list</span><span class="p">,</span> <span class="s2">&quot;No rovers defined&quot;</span>
+    <span class="c1"># We create a list of rovers -&gt; the squad</span>
+    <span class="n">squad</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="n">rover_count</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="c1"># Now we read each 2 lines, create the rovers and add them to the fleet</span>
+    <span class="k">while</span> <span class="n">input_list</span><span class="p">:</span>
+
+        <span class="n">rover_count</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="c1"># Obtain initial position</span>
+        <span class="n">initial_position</span> <span class="o">=</span> <span class="n">input_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># If the list is empty now, the second line with the movements is empty -&gt; stop the program and raise an error</span>
+        <span class="n">str_error</span> <span class="o">=</span> <span class="s2">&quot;No movement string defined for rover&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">rover_count</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="n">input_list</span><span class="p">,</span> <span class="n">str_error</span>
+        <span class="c1"># Obtain movements string</span>
+        <span class="n">movements</span> <span class="o">=</span> <span class="n">input_list</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c1"># Remove blank spaces and end of line in the position and movement string</span>
+        <span class="n">initial_position</span> <span class="o">=</span> <span class="n">initial_position</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">initial_position</span> <span class="o">=</span> <span class="n">initial_position</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="n">movements</span> <span class="o">=</span> <span class="n">movements</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+        <span class="n">movements</span> <span class="o">=</span> <span class="n">movements</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+        <span class="c1"># With the gathered info, we create the rover and add it to the squad</span>
+        <span class="n">rover</span> <span class="o">=</span> <span class="n">Rover</span><span class="p">(</span><span class="n">initial_position</span><span class="p">,</span> <span class="n">movements</span><span class="p">,</span> <span class="n">board</span><span class="p">)</span>
+        <span class="n">squad</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rover</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">squad</span></div>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">SEATCode</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, David Munoz.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.8.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
