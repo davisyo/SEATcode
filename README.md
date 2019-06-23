@@ -1,5 +1,8 @@
-# SEATcode
-A squad of rovers explore the martian surface in the SEATCode challenge
+# David Muñoz's SEATCode Challenge - User Guide
+A squad of rovers explore the martian surface in the SEATCode Challenge
+
+### CODE DOCUMENTATION:
+In order to consult the code's documentation, download the proyect and open the file './doc/html/index.html' in your browser
 
 ### PREREQUISITES:
 
