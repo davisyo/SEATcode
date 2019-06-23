@@ -2,7 +2,7 @@
 A squad of rovers explore the martian surface in the SEATCode Challenge
 
 ### CODE DOCUMENTATION:
-In order to consult the code's documentation, download the proyect and open the file './doc/html/index.html' in your browser
+In order to consult the code's documentation, download the proyect and open the file *'./doc/html/index.html'* in your browser
 
 ### PREREQUISITES:
 
