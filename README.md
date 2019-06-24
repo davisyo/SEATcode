@@ -27,7 +27,7 @@ rover’s orientation. Each rover will be finished sequentially, which
 means that the second rover won’t start to move until the first one has
 finished moving."*
 
-#### Example of the content a text file input (named test_case1.txt):
+#### Example of the content a text file input (named test_case1_boundaries.txt):
 ```
 9 4
 2 3 E
