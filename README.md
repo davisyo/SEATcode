@@ -60,5 +60,26 @@ The following assumptions were made in the design and development of the applica
 -	If an incorrect movement instruction is detected, it will be reported and ignored
 -	If an incorrect number of blank spaces are detected inside the position or movement strings, they will be ignored
 
+### PROVIDED INPUT FILES AND TEST CASES
 
+A total of 5 text files are provided as examples and test cases:
+
+- input.txt
+- test_case1_boundaries.txt
+- test_case2_emptyfile.txt
+- test_case3_wronginstructions.txt
+- test_case4_wronglength.txt
+
+The file "input.txt" replicates the example provided in the challenge specification, i.e.:
+```
+5 5
+1 2 N
+L M L M L M L M M
+3 3 E
+M M R M M R M R R M
+```
+
+The other 4 test cases are documented here in the wiki:
+
+https://github.com/davisyo/SEATcode/wiki/TEST-CASES-DOCUMENTATION
 
