@@ -59,6 +59,7 @@ The following assumptions were made in the design and development of the applica
 -	The range of valid positions goes from (0,0) to (upper_limit_x, upper_limit_y)
 -	If an incorrect movement instruction is detected, it will be reported and ignored
 -	If an incorrect number of blank spaces are detected inside the position or movement strings, they will be ignored
+- For every rover it is mandatory to specify both the position and movements string
 
 ### PROVIDED INPUT FILES AND TEST CASES
 
