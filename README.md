@@ -41,7 +41,7 @@ M M L M M M L M M M R M M M
 
 The output of the application will contain 1 line for each rover defined with its final coordinates and heading.
 
-#### Example output running the program using test_case1.txt as input:
+#### Example output running the program using test_case1_boundaries.txt as input:
 
 ```
 python main.py test_case1.txt
